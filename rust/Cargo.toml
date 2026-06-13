@@ -1,0 +1,18 @@
+[package]
+name = "virtualenv-viewer"
+version = "0.1.0"
+edition = "2021"
+description = "Interactive terminal UI for viewing virtualenv configuration"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+ratatui = "0.28"
+crossterm = "0.28"
+regex = "1"
+toml = "0.8"
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+tempfile = "3"
+proptest = "1"
+serial_test = "3"

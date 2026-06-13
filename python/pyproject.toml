@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "virtualenv-viewer"
+version = "0.1.0"
+description = "Interactive terminal UI for viewing virtualenv configuration"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+virtualenv-viewer = "virtualenv_viewer.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/virtualenv_viewer"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+packages = ["virtualenv_viewer"]
+mypy_path = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.4.0",
+    "mypy>=1.10.0",
+    "pytest>=8.0.0",
+    "hypothesis>=6.100.0",
+]
